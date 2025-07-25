@@ -51,5 +51,17 @@ const pricingTiers = [
 ];
 
 export const Pricing = () => {
-  return null;
-};
+  return(
+  <section>
+    <div className="py-24">
+<h2 className="sectiontittle">Pricing</h2>
+<p className="sectiondescription mt-5">Effortlessly turn your ideas into a fully functional, responsive, no-code SaaS website in just minutes with the set of free components for Framer.</p>
+   <div>
+    <div>
+      
+    </div>
+   </div>
+    </div>
+  </section>
+      
+)};

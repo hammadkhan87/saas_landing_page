@@ -12,8 +12,8 @@ export const ProductShowcase = () => {
           Boost Your Productivity</div>
                   </div>
 
-          <h2 className="mt-5 text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001e80] text-transparent bg-clip-text">A more effective way to track  progress </h2>
-          <p className=" mt-5 text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E]">Effortlessly turn your ideas into fully functional, responsive, SaaS website in just  minutes with this template </p>
+          <h2 className="mt-5 sectiontittle">A more effective way to track  progress </h2>
+          <p className=" mt-5 sectiondescription">Effortlessly turn your ideas into fully functional, responsive, SaaS website in just  minutes with this template </p>
         </div>
         <div className="relative">
         <Image src={productImage} alt="Product Image" className="mt-10"/>
