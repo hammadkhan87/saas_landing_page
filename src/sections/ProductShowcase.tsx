@@ -6,13 +6,13 @@ export const ProductShowcase = () => {
   return (
     <section className="bg-gradient-to-b from-[#FFFFFF] to-[#D2DCFF] py-24 overflow-x-clip">
       <div className="">
-        <div className="max-w-[540px] mx-auto">
+        <div className="section-heading">
         <div className="flex justify-center">
         <div className="tag">
           Boost Your Productivity</div>
                   </div>
 
-          <h2 className="mt-5 sectiontittle">A more effective way to track  progress </h2>
+          <h2 className="mt-5 sectiontitle">A more effective way to track  progress </h2>
           <p className=" mt-5 sectiondescription">Effortlessly turn your ideas into fully functional, responsive, SaaS website in just  minutes with this template </p>
         </div>
         <div className="relative">

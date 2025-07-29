@@ -7,6 +7,7 @@ import avatar6 from "@/assets/avatar-6.png";
 import avatar7 from "@/assets/avatar-7.png";
 import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
+import { section } from "framer-motion/client";
 
 const testimonials = [
   {
@@ -64,7 +65,24 @@ const testimonials = [
     username: "@casey09",
   },
 ];
-
+ const firstColumn = testimonials.slice(0, 3);
+  const secondColumn = testimonials.slice(3, 6);
+  const thirdColumn = testimonials.slice(6, 9);
 export const Testimonials = () => {
-  return null;
+  return (
+    <section className="bg-white">
+<div className="container">
+  <div className="flex justify-center">
+     <div className="tag">Testimonials</div>
+    </div>
+<h2 className="sectiontitle">What our users say</h2>
+<p className="sectiondescription">From intuitive design to powerful features, our app has become an essential tool for users around the world</p>
+<div>
+  {
+    
+  }
+</div>
+</div>
+    </section>
+  );
 };
