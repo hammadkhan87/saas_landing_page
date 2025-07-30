@@ -7,7 +7,8 @@ import avatar6 from "@/assets/avatar-6.png";
 import avatar7 from "@/assets/avatar-7.png";
 import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
-import { section } from "framer-motion/client";
+import { div, section } from "framer-motion/client";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -65,24 +66,49 @@ const testimonials = [
     username: "@casey09",
   },
 ];
- const firstColumn = testimonials.slice(0, 3);
-  const secondColumn = testimonials.slice(3, 6);
-  const thirdColumn = testimonials.slice(6, 9);
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
+
+const TestimonialsColumn = (props:{testimonials:typeof testimonials}) => (
+  <div className="flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+          {
+            props.testimonials.map((testimonial, index) => (
+              <div className="card">
+                <div>
+                  {testimonial.text}
+                </div>
+                <div className="flex itemss-center gap-2 mt-5 ">
+                  <Image src={testimonial.imageSrc} alt={testimonial.name} width={40} height={40} className="h-10 w-10 rounded-full"/>
+                  <div className="flex flex-col">
+                    <div className="font-medium tracking-tight leading-5">
+                      {testimonial.name}
+                    </div>
+                    <div className="leading-5 tracking-tight">{testimonial.username}</div>
+                     
+                  </div>
+                </div>
+              </div>
+            ))
+
+          }
+        </div>
+          
+          )
 export const Testimonials = () => {
   return (
     <section className="bg-white">
-<div className="container">
-  <div className="flex justify-center">
-     <div className="tag">Testimonials</div>
-    </div>
-<h2 className="sectiontitle">What our users say</h2>
-<p className="sectiondescription">From intuitive design to powerful features, our app has become an essential tool for users around the world</p>
-<div>
-  {
-    
-  }
-</div>
-</div>
+      <div className="mx-auto">
+        <div className="flex justify-center">
+          <div className="tag">Testimonials</div>
+        </div>
+        <h2 className="sectiontitle mt-5">What our users say</h2>
+        <p className="sectiondescription mt-5">From intuitive design to powerful features, our app has become an essential tool for users around the world</p>
+         <div className="flex justify-center gap-6">        
+          <TestimonialsColumn testimonials={firstColumn} />
+        </div>
+
+      </div>
     </section>
   );
 };
