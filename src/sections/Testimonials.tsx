@@ -9,6 +9,7 @@ import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
 import { div, section } from "framer-motion/client";
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 
 const testimonials = [
   {
@@ -70,8 +71,8 @@ const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
-const TestimonialsColumn = (props:{testimonials:typeof testimonials}) => (
-  <div className="flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+const TestimonialsColumn = (props:{className?: string; testimonials:typeof testimonials}) => (
+  <div className={twMerge("flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]", props.className)}>
           {
             props.testimonials.map((testimonial, index) => (
               <div className="card">
@@ -92,20 +93,24 @@ const TestimonialsColumn = (props:{testimonials:typeof testimonials}) => (
             ))
 
           }
-        </div>
-          
+        </div>          
           )
 export const Testimonials = () => {
   return (
     <section className="bg-white">
       <div className="mx-auto">
+        <div className="section-heading">
         <div className="flex justify-center">
           <div className="tag">Testimonials</div>
         </div>
         <h2 className="sectiontitle mt-5">What our users say</h2>
         <p className="sectiondescription mt-5">From intuitive design to powerful features, our app has become an essential tool for users around the world</p>
-         <div className="flex justify-center gap-6">        
+         </div>
+         <div className="flex justify-center gap-6">
+
           <TestimonialsColumn testimonials={firstColumn} />
+          <TestimonialsColumn testimonials={secondColumn} className="hidden md:flex" />
+          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:flex" />
         </div>
 
       </div>
