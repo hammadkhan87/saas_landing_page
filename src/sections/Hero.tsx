@@ -4,7 +4,20 @@ import cogImage from "@/assets/cog.png";
 import Image from "next/image";
 import cylinderImage from "@/assets/cylinder.png"
 import noodleImage from "@/assets/noodle.png"
+import {motion, useScroll, useTransform,useMotionValueEvent} from "framer-motion";
+import { useRef } from "react";
 export const Hero = () => {
+
+  const heroref = useRef(null)
+
+  const {scrollYProgress} = useScroll({
+    target:heroref,
+    offset:["start end", "end start"]
+  });
+  const  translateY = useTransform(scrollYProgress,[0,1],[150,-150])
+
+// useMotionValueEvent(translateY, "change", (latestValue) => console.log(latestValue));
+
   return(
     <section className="items-center px-5 pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#183EC2,#EAEEFE_100%)] overflow-x-clip">
       <div className="px-20">
@@ -28,9 +41,25 @@ export const Hero = () => {
               </div>
        </div>
        <div className="mt-20 md:mt-0 md:h-[648px] md:ml-20 md:flex-1 relative">
-        <Image src={cogImage} alt="cog"  className="md:absolute md:h-full md:w-auto md:max-w-none md:-left-6 lg:right-0"/>
-       <Image src={cylinderImage} height={200} width={200} alt="cylinder" className="hidden md:block -top-8 -left-32 md:absolute lg:right-0"/>
-       <Image src={noodleImage} width={200}  alt="noodle image" className="hidden lg:block absolute top-[540px] left-[530px] rotate-[33deg]" />
+        <motion.img src={cogImage.src} alt="cog" 
+         className="md:absolute md:h-full md:w-auto md:max-w-none lg:right-0 md:left-12"
+          animate={{translateY:[-30,30],}}
+          transition={{repeat: Infinity, repeatType:'mirror',duration:3, ease: "easeInOut"}}
+         
+         />
+       <motion.img src={cylinderImage.src} height={200} width={200} alt="cylinder" 
+       className="hidden md:block -top-30 -left-15 md:absolute lg:right-0"
+       style={{translateY:translateY}}
+       />
+       <motion.img src={noodleImage.src} width={200} 
+        alt="noodle image"
+         className="hidden lg:block absolute top-[410px] left-[590px]"
+          style={{
+            rotate:30,
+            translateY:translateY
+          }}
+
+         />
        </div>
        </div>
       </div>
