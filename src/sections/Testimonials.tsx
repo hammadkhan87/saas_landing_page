@@ -86,7 +86,7 @@ const TestimonialsColumn = (props:{className?: string; testimonials:typeof testi
             <React.Fragment key={index}>
  {
             props.testimonials.map((testimonial, index) => (
-              <div className="card">
+              <div key={index} className="card">
                 <div>
                   {testimonial.text}
                 </div>

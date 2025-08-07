@@ -65,7 +65,7 @@ export const Pricing = () => {
         <div className="flex flex-col gap-6 items-center mt-10 lg:flex-row lg:items-end lg:justify-center">
           {pricingTiers.map((tier, index) => (
 
-            <div className={ twMerge("card",tier.inverse === true && ("border-black bg-black text-white"))}>
+            <div key={index} className={ twMerge("card",tier.inverse === true && ("border-black bg-black text-white"))}>
               <div className="flex justify-between">
               <h3 className={twMerge("text-lg font-bold text-black/50",tier.inverse === true && ("text-white/60"))}>{tier.title}</h3>
               {tier.popular === true &&(
@@ -85,8 +85,8 @@ export const Pricing = () => {
                 <span className={twMerge("tracking-tight font-bold text-black/50", tier.inverse === true && ("text-white/50") )}>/Month</span>
               </div>
               <button className={twMerge("btn btn-primary w-full mt-[30px]", tier.inverse === true &&("bg-white text-black"))}>{tier.buttonText}</button>
-              <ul className="flex flex-col gap-5 mt-8">{tier.features.map((feature) => (
-                <li className="text-sm flex items-center gap-4">
+              <ul className="flex flex-col gap-5 mt-8">{tier.features.map((feature,index) => (
+                <li key={index} className="text-sm flex items-center gap-4">
                 <CheckIcon className="h-6 w-6" />
                 <span>{feature}</span>
               </li>))}</ul>
